@@ -95,7 +95,7 @@ namespace _04._03._2019_CW
                     {
                         if (LCh(file.Name).Count > 0)
                         {
-                            tmp.AddRange(LCh(file.Name));
+                            tmp.AddRange(LCh(file.Name.Substring(0,file.Name.LastIndexOf("."))));
                         }
                     }
                     tmp = tmp.GroupBy(w => w.find).Select(s => new Tmp { find = s.Key }).ToList();
@@ -105,7 +105,7 @@ namespace _04._03._2019_CW
                 foreach (Tmp item in tmp)
                 {
                     Console.WriteLine(item.find + "-");
-                    item.replace = string.IsNullOrWhiteSpace(Console.ReadLine())?new char(): Console.ReadLine()[0];
+                    item.replace = !string.IsNullOrWhiteSpace(Console.ReadLine())?new char(): Console.ReadLine()[0];
                 }
                 foreach (var item in formatsChoice)
                 {
@@ -116,7 +116,7 @@ namespace _04._03._2019_CW
                         {
                             str.Replace(i.find, i.replace);
                         }
-                        string newP = Path.Combine(pathTo, str);
+                        string newP = Path.Combine(pathTo, str+""+file.Extension);
                         file.MoveTo(newP);
                     }
                    
