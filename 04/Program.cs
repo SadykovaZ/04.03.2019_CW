@@ -104,8 +104,8 @@ namespace _04._03._2019_CW
                 }
                 foreach (Tmp item in tmp)
                 {
-                    Console.Write(item.find + "-");
-                    item.replace = Console.ReadLine()[0];
+                    Console.WriteLine(item.find + "-");
+                    item.replace = string.IsNullOrWhiteSpace(Console.ReadLine())?new char(): Console.ReadLine()[0];
                 }
                 foreach (var item in formatsChoice)
                 {
@@ -116,7 +116,8 @@ namespace _04._03._2019_CW
                         {
                             str.Replace(i.find, i.replace);
                         }
-                        file.MoveTo()
+                        string newP = Path.Combine(pathTo, str);
+                        file.MoveTo(newP);
                     }
                    
 
