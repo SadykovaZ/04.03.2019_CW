@@ -105,6 +105,7 @@ namespace _04._03._2019_CW
                 foreach (Tmp item in tmp)
                 {
                     Console.WriteLine(item.find + "-");
+                    string choice = Console.ReadLine();
                     item.replace = !string.IsNullOrWhiteSpace(Console.ReadLine())?new char(): Console.ReadLine()[0];
                 }
                 foreach (var item in formatsChoice)
